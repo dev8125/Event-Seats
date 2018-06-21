@@ -1,0 +1,3 @@
+<named-query name=" Seat.findByAvailableAndSeatTypeAndAisle">
+    <query> select s from Seat s where s.isSeatAvailable= ?1 AND s.getSeatType= ?2 AND s.isAisle= ?3</query>
+</named-query>

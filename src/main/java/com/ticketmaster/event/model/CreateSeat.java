@@ -8,7 +8,8 @@ public class CreateSeat {
 
     public static void main( String[ ] args ) {
 
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "org.hibernate.jpa.HibernatePersistenceProvider" );
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory(
+                "org.hibernate.jpa.HibernatePersistenceProvider" );
 
         EntityManager entitymanager = emfactory.createEntityManager();
         entitymanager.getTransaction().begin();

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class EventService{
+public class EventService {
 
     private List<Seat> seatList;
     @Autowired

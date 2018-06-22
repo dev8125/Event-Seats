@@ -6,7 +6,7 @@
              version="2.0">
 <persistence-unit name="com.persistence" transaction-type="RESOURCE_LOCAL"> <!-- trans-type JTA=Java EE, RESOURCE = Java SE -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>Customer</class>
+    <class>com.ticketmaster.event.model.Seat</class>
     <properties>
         <property name="hibernate.connection.driver_class" value="org.hsqldb.jbdcDriver"/>
         <property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost:8080"/>

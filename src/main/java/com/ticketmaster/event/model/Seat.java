@@ -31,7 +31,6 @@ public class Seat
     @ElementCollection
     private List<Seat> seatList;
 
-    @ManyToMany
     private Seat seat;
 
 

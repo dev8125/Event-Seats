@@ -8,10 +8,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "SEAT_TABLE")
+@Table(name = "seat_table")
 public class Seat
 {
-    @Column(name = "ID")
+    @Column(name = "id")
     @Id
     @GeneratedValue
     private Long id;
@@ -21,11 +21,11 @@ public class Seat
 //    @Column(name = "Event_ID")
 //    private EventModel eventModel;
 
-    @Column(name = "AVAILABLE")
+    @Column(name = "available")
     private  boolean seatAvail;
-    @Column(name = "AISLE")
+    @Column(name = "aisle")
     private boolean isAisle;
-    @Column(name = "SEAT_TYPE")
+    @Column(name = "seat_type")
     private int seatType;
 
     @ElementCollection

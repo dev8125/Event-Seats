@@ -15,7 +15,7 @@ import java.util.List;
 public interface SeatRepository extends JpaRepository<Seat, Long>
          {
 
-     @Query("SELECT count(*) from SEAT_TABLE where available =: avail AND seatType =: seatType AND aisle=: aisle")
+     @Query("SELECT count(*) from seat_table where available =: avail AND seatType =: seatType AND aisle=: aisle")
      List<Seat> findByAvailableAndSeatTypeAndAisle(@Param("available")Boolean available,
                       @Param("seatType") Integer seatType,
                       @Param("aisle") Boolean aisle);

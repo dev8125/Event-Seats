@@ -17,18 +17,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @ComponentScan("com.ticketmaster.event")
 @EntityScan("com.ticketmaster.domain")
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
 public class Application extends SpringBootServletInitializer
 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
 
-    private static final EntityManagerFactory INSTANCE =
-            Persistence.createEntityManagerFactory("com.persistence");
+//    private static final EntityManagerFactory INSTANCE =
+//            Persistence.createEntityManagerFactory("com.persistence");
 
 
     @Autowired

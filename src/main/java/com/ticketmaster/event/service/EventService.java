@@ -27,5 +27,4 @@ public class EventService {
         seatList = seatRepository.findAll();
         return seatList;
     }
-
 }

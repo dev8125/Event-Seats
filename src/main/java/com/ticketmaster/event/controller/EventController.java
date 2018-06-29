@@ -14,8 +14,6 @@ import java.util.stream.StreamSupport;
 @RequestMapping(value = "/getNumSeats", produces = "application/json") //make the rest resource naming better
 public class EventController {
 
-    @Autowired
-    private EventService eventService;
 
 //    @Autowired
 //    private final SeatRepository seatRepository;
@@ -23,6 +21,17 @@ public class EventController {
 //    public EventController(SeatRepository seatRepository) {
 //        this.seatRepository = seatRepository;
 //    }
+
+    @Autowired
+    private EventService eventService;
+
+    @GetMapping(value = "/event/service")
+    public List<Seat> serviceTest(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
+                                  @RequestParam(value = "seatType", defaultValue = "1", required = false) int seatType,
+                                  @RequestParam(value = "aisle", defaultValue = "false", required = false) Boolean aisle) {
+        return eventService.queryService(avail, seatType, aisle);
+
+    }
 
 
     @GetMapping(value = "/total")
@@ -81,11 +90,5 @@ public class EventController {
 //    }
 
     // testing if call should be made on service rather than repository
-    @GetMapping(value = "/event/service")
-    public List<Seat> serviceTest(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
-                                  @RequestParam(value = "seatType", defaultValue = "1", required = false) int seatType,
-                                  @RequestParam(value = "aisle", defaultValue = "false", required = false) Boolean aisle) {
-            return eventService.queryService(avail, seatType, aisle);
 
-    }
 }

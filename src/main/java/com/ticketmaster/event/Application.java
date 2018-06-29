@@ -21,7 +21,7 @@ import javax.persistence.Persistence;
 @ComponentScan("com.ticketmaster.event")
 @EntityScan("com.ticketmaster.domain")
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
-public class Application extends SpringBootServletInitializer
+public class Application //extends SpringBootServletInitializer
 {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);

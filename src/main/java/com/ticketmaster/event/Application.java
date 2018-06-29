@@ -17,6 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 @ComponentScan("com.ticketmaster.event")
 @EntityScan("com.ticketmaster.domain")
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
@@ -38,7 +39,7 @@ public class Application extends SpringBootServletInitializer
         return new JPAUtility();
     }
 
-    @Bean
+   // @Bean
     InitializingBean sendDatabase() {
         return () -> {
             seatRepository.save(new Seat(false, false, 1));

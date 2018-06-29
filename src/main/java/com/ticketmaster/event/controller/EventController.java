@@ -16,68 +16,69 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
-    @Autowired
-    private final SeatRepository seatRepository;
 
-    public EventController(SeatRepository seatRepository) {
-        this.seatRepository = seatRepository;
-    }
+//    @Autowired
+//    private final SeatRepository seatRepository;
+//
+//    public EventController(SeatRepository seatRepository) {
+//        this.seatRepository = seatRepository;
+//    }
 
 
     @GetMapping(value = "/total")
     public List<Seat> allSeats() {
         return eventService.getSeatList();
     } //seatRepository.findAll();
-
-    @GetMapping(value = "/event")
-    public List<Seat> filteredList(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
-                                   @RequestParam(value = "seatType", defaultValue = "1", required = false) int seatType, // 1 = adult seat
-                                   @RequestParam(value = "aisle", defaultValue = "false", required = false) Boolean aisle){
-
-        List<Seat> availList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
-                .filter(x -> x.isSeatAvailable()==avail).collect(Collectors.toList());
-
-        List<Seat> aisleList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
-                .filter(x -> x.isAisle()==aisle).collect(Collectors.toList());
-
-        List<Seat> seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
-                .filter(x -> x.getSeatType() == seatType).collect(Collectors.toList());
-
-//        if((seatType == 0)) {
-//           seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(),false)
-//                    .filter(x->x.getSeatType()==0).collect(Collectors.toList());
-//        }
 //
-//        if((seatType == 1)) {
-//             seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(),false)
-//                    .filter(x->x.getSeatType()==1).collect(Collectors.toList());
-//        }
-
-        // deal with overlap of duplicate seats in lists
-        for (Seat s : aisleList)
-            if (!availList.contains(s))
-                availList.add(s);
-
-        List<Seat> filteredList = availList;
-        for (Seat s : seatTypeList)
-            if (!filteredList.contains(s))
-                filteredList.add(s);
-
-        return filteredList;
-    }
-
-    @GetMapping(value = "/avail/child")
-    public List<Seat> availChild(@RequestParam(value = "avail") Boolean avail,
-                                 @RequestParam(value = "child") int child) {
-        ArrayList<Seat> returnList = new ArrayList<>();
-
-        List<Seat> availList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
-                .filter(x -> x.isSeatAvailable()).collect(Collectors.toList());
-        for (Seat s : availList)
-            if (s.getSeatType() == 0)
-                returnList.add(s);
-        return returnList;
-    }
+//    @GetMapping(value = "/event")
+//    public List<Seat> filteredList(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
+//                                   @RequestParam(value = "seatType", defaultValue = "1", required = false) int seatType, // 1 = adult seat
+//                                   @RequestParam(value = "aisle", defaultValue = "false", required = false) Boolean aisle){
+//
+//        List<Seat> availList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
+//                .filter(x -> x.isSeatAvailable()==avail).collect(Collectors.toList());
+//
+//        List<Seat> aisleList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
+//                .filter(x -> x.isAisle()==aisle).collect(Collectors.toList());
+//
+//        List<Seat> seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
+//                .filter(x -> x.getSeatType() == seatType).collect(Collectors.toList());
+//
+////        if((seatType == 0)) {
+////           seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(),false)
+////                    .filter(x->x.getSeatType()==0).collect(Collectors.toList());
+////        }
+////
+////        if((seatType == 1)) {
+////             seatTypeList = StreamSupport.stream(seatRepository.findAll().spliterator(),false)
+////                    .filter(x->x.getSeatType()==1).collect(Collectors.toList());
+////        }
+//
+//        // deal with overlap of duplicate seats in lists
+//        for (Seat s : aisleList)
+//            if (!availList.contains(s))
+//                availList.add(s);
+//
+//        List<Seat> filteredList = availList;
+//        for (Seat s : seatTypeList)
+//            if (!filteredList.contains(s))
+//                filteredList.add(s);
+//
+//        return filteredList;
+//    }
+//
+//    @GetMapping(value = "/avail/child")
+//    public List<Seat> availChild(@RequestParam(value = "avail") Boolean avail,
+//                                 @RequestParam(value = "child") int child) {
+//        ArrayList<Seat> returnList = new ArrayList<>();
+//
+//        List<Seat> availList = StreamSupport.stream(seatRepository.findAll().spliterator(), false)
+//                .filter(x -> x.isSeatAvailable()).collect(Collectors.toList());
+//        for (Seat s : availList)
+//            if (s.getSeatType() == 0)
+//                returnList.add(s);
+//        return returnList;
+//    }
 
     // testing if call should be made on service rather than repository
     @GetMapping(value = "/event/service")

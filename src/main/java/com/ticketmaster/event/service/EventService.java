@@ -12,10 +12,10 @@ public class EventService {
     @Autowired
     private  SeatRepository seatRepository;
 
-//
-//    public EventService(SeatRepository seatRepository){
-//        this.seatRepository = seatRepository;
-//    }
+
+    public EventService(SeatRepository seatRepository){
+        this.seatRepository = seatRepository;
+    }
 
 
    public List<Seat> queryService(Boolean available, int seatType, Boolean aisle){

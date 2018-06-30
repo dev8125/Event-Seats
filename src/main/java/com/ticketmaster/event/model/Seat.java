@@ -15,7 +15,7 @@ public class Seat
     @Id
     @GeneratedValue
     private Long id;
-    
+
 
     @Column(name = "available")
     private  boolean seatAvail;
@@ -24,8 +24,7 @@ public class Seat
     @Column(name = "seat_type")
     private int seatType;
 
-    @ElementCollection
-    private List<Seat> seatList;
+
 
     private Seat seat;
 
@@ -39,14 +38,6 @@ public class Seat
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
         this.seatType = seatType;
-    }
-
-    public List<Seat> getSeatList() {
-        return seatList;
-    }
-
-    public void setSeatList(List<Seat> seatList) {
-        this.seatList = seatList;
     }
 
     public boolean isSeatAvailable() {

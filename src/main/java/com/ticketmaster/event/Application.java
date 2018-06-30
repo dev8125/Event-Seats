@@ -21,7 +21,7 @@ import javax.persistence.Persistence;
 @ComponentScan("com.ticketmaster.event")
 @EntityScan("com.ticketmaster.domain")
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
-public class Application //extends SpringBootServletInitializer
+public class Application extends SpringBootServletInitializer
 {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
@@ -34,12 +34,8 @@ public class Application //extends SpringBootServletInitializer
     @Autowired
     private SeatRepository seatRepository;
 
-    @Bean
-    public JPAUtility jpaUtility(){
-        return new JPAUtility();
-    }
 
-   // @Bean
+    @Bean
     InitializingBean sendDatabase() {
         return () -> {
             seatRepository.save(new Seat(false, false, 1));

@@ -15,11 +15,7 @@ public class Seat
     @Id
     @GeneratedValue
     private Long id;
-
-//    @JsonIgnore
-//    @OneToMany
-//    @Column(name = "Event_ID")
-//    private EventModel eventModel;
+    
 
     @Column(name = "available")
     private  boolean seatAvail;

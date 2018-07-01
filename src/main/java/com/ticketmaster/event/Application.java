@@ -15,14 +15,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @ComponentScan("com.ticketmaster.event")
 @EntityScan("com.ticketmaster.domain")
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
 public class Application extends SpringBootServletInitializer
 {
+
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
@@ -31,35 +36,45 @@ public class Application extends SpringBootServletInitializer
 //            Persistence.createEntityManagerFactory("com.persistence");
 
 
-    @Autowired
-    private SeatRepository seatRepository;
+//    @Autowired
+//    private SeatRepository seatRepository;
+//
+//
+//    @Bean
+//    InitializingBean sendDatabase() {
+//        return () -> {
+//            seatRepository.save(new Seat(false, false, 1));
+//            seatRepository.save(new Seat(true, false, 1));
+//            seatRepository.save(new Seat(true, true, 0));
+//            seatRepository.save(new Seat(true, false, 1));
+//            seatRepository.save(new Seat(false, true, 1));
+//            seatRepository.save(new Seat(false, false, 0));
+//            seatRepository.save(new Seat(true, true, 0));
+//            seatRepository.save(new Seat(false, false, 1));
+//            seatRepository.save(new Seat(true, false, 0));
+//            seatRepository.save(new Seat(true, true, 1));
+//            seatRepository.save(new Seat(false, false, 1));
+//            seatRepository.save(new Seat(true, false, 1));
+//            seatRepository.save(new Seat(true, false, 0));
+//            seatRepository.save(new Seat(true, false, 1));
+//            seatRepository.save(new Seat(false, true, 1));
+//            seatRepository.save(new Seat(false, false, 0));
+//            seatRepository.save(new Seat(true, true, 0));
+//            seatRepository.save(new Seat(false, false, 1));
+//            seatRepository.save(new Seat(true, true, 0));
+//            seatRepository.save(new Seat(false, true, 1));
+//        };
+//      }
 
 
-    @Bean
-    InitializingBean sendDatabase() {
-        return () -> {
-            seatRepository.save(new Seat(false, false, 1));
-            seatRepository.save(new Seat(true, false, 1));
-            seatRepository.save(new Seat(true, true, 0));
-            seatRepository.save(new Seat(true, false, 1));
-            seatRepository.save(new Seat(false, true, 1));
-            seatRepository.save(new Seat(false, false, 0));
-            seatRepository.save(new Seat(true, true, 0));
-            seatRepository.save(new Seat(false, false, 1));
-            seatRepository.save(new Seat(true, false, 0));
-            seatRepository.save(new Seat(true, true, 1));
-            seatRepository.save(new Seat(false, false, 1));
-            seatRepository.save(new Seat(true, false, 1));
-            seatRepository.save(new Seat(true, false, 0));
-            seatRepository.save(new Seat(true, false, 1));
-            seatRepository.save(new Seat(false, true, 1));
-            seatRepository.save(new Seat(false, false, 0));
-            seatRepository.save(new Seat(true, true, 0));
-            seatRepository.save(new Seat(false, false, 1));
-            seatRepository.save(new Seat(true, true, 0));
-            seatRepository.save(new Seat(false, true, 1));
-        };
-      }
+
+
+
+//    Connection conn = DriverManager.getConnection(default);
+//
+//    String originalURL = conn.getMetaData().getURL();
+//    Driver drv = DriverManager.getDriver(originalURL);
+//    String driverClass = drv.getClass().getName();
 
 
 }

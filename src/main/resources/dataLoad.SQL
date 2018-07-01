@@ -1,15 +1,3 @@
---CREATE TABLE seat_table;
---
---
---insert into seat_table
-----values(1001, "true" , "false", 0);
-----values(1002, "true" , "true", 1);
-----values(1003 , "true" , "true", 1);
-----values(1004, "true" , "false", 0);
-----values(1005, "true" , "true", 1);
---
---values(1001, true , false, 0);
-
 
 CREATE TABLE seat_table(
   seat_id INT NOT NULL,
@@ -26,4 +14,3 @@ VALUES
     (2,"true" "false",0),
     (3,"true","true", 0);
     (4, "true","true", 1);
-

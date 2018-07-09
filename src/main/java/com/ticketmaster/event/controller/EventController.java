@@ -17,9 +17,6 @@ import java.util.stream.StreamSupport;
 @RequestMapping(value = "/getNumSeats", produces = "application/json") //make the rest resource naming better
 public class EventController {
 
-
-
-
     @Autowired
     private EventService eventService;
 

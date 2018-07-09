@@ -24,9 +24,9 @@ public class EventService {
 
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){
-      seatList=  eventController.serviceTest(available, seatType, aisle);
-    //  seatList=  seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
 
-       return seatList;
+     return seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
+
+
     }
 }

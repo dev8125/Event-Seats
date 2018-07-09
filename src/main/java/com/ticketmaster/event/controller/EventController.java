@@ -4,6 +4,7 @@ import com.ticketmaster.event.repositories.SeatRepository;
 import com.ticketmaster.event.model.Seat;
 import com.ticketmaster.event.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
@@ -17,26 +18,21 @@ import java.util.stream.StreamSupport;
 public class EventController {
 
 
-//    @Autowired
-//    private SeatRepository seatRepository;
 
 
     @Autowired
     private EventService eventService;
 
     @GetMapping(value = "/event/service")
-    public List<Seat> serviceTest(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
-                                  @RequestParam(value = "seatType", defaultValue = "1", required = false) int seatType,
-                                  @RequestParam(value = "aisle", defaultValue = "false", required = false) Boolean aisle) {
+    public ArrayList<Seat> serviceTest(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
+                                  @RequestParam(value = "seatType", defaultValue = "0", required = false) int seatType,
+                                  @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle) {
+       // return seatRepository.findByAvailableAndSeatTypeAndAisle(avail, seatType, aisle);
+
         return eventService.queryService(avail, seatType, aisle);
 
     }
 
-
-    @GetMapping(value = "/total")
-    public List<Seat> allSeats() {
-        return eventService.getSeatList();
-    } //seatRepository.findAll();
 
 //    @GetMapping(value = "/event")
 //    public List<Seat> filteredList(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,

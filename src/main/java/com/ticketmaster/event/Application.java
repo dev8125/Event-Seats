@@ -28,12 +28,11 @@ import java.util.*;
 @EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
 public class Application extends SpringBootServletInitializer {
 
+    @Autowired
+    static SeatRepository seatRepository;
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
-
-
-
     }
 
     @Autowired
@@ -169,11 +168,10 @@ public class Application extends SpringBootServletInitializer {
         };
     }
 
+
+
+
 //
-//    @Autowired
-//    private SeatRepository seatRepository;
-
-
 //    @Bean
 //    InitializingBean sendDatabase() {
 //        return () -> {

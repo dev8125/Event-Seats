@@ -1,0 +1,31 @@
+--#import.sql file
+--delete from SEAT_TABLE
+--insert into SEAT_TABLE(SEAT_ID, AVAILABLE, AISLE, AGE_TYPE)
+--    values ('1', true, true, 0)
+--
+--insert into SEAT_TABLE(SEAT_ID, AVAILABLE, AISLE, AGE_TYPE)
+--    values ('2', false, true, 1)
+--
+--insert into SEAT_TABLE(SEAT_ID, AVAILABLE, AISLE, AGE_TYPE)
+--    values ('1', true, true, 0)
+--
+--
+--
+--CREATE TABLE seat_table(
+--  seat_id INT NOT NULL,
+--  seat_available VARCHAR(5) NOT NULL,
+--  seat_aisle VARCHAR(5) NOT NULL,
+--  seat_type INT NOT NULL,
+--  PRIMARY KEY (seat_id),
+--);
+--
+--INSERT INTO seat_table
+--    (seat_id, seat_available, seat_aisle, seat_type)
+--VALUES
+--    (1,"true", "true", 0),
+--    (2,"true" "false",0),
+--    (3,"true","true", 0);
+--    (4, "true","true", 1);
+
+insert into seat_table(id, available, seatType, aisle) values (1, true, 0, true);
+insert into users(id, name, email, city) values (1, "Amy Henderson", "ahenderson@gmail.com", "Oklahoma City");

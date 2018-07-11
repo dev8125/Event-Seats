@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public interface SeatRepository extends JpaRepository<Seat, Long>
          {
 
-    // @Query("SELECT count(*) from seat_table where available =: avail AND seatType =: seatType AND aisle=: aisle")
+     @Query("SELECT count(*) from SEATS where available =: available AND seatType =: seatType AND aisle=: aisle")
      ArrayList<Seat> findByAvailableAndSeatTypeAndAisle(@Param("available")Boolean available,
                                                         @Param("seatType") Integer seatType,
                                                         @Param("aisle") Boolean aisle);

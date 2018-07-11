@@ -11,11 +11,11 @@
 --
 --
 --
---CREATE TABLE seat_table(
---  seat_id INT NOT NULL,
---  seat_available VARCHAR(5) NOT NULL,
---  seat_aisle VARCHAR(5) NOT NULL,
---  seat_type INT NOT NULL,
+--CREATE TABLE seats(
+--  id INT NOT NULL,
+--  available VARCHAR(5) NOT NULL,
+--  seatType INT NOT NULL,
+--  aisle VARCHAR(5) NOT NULL,
 --  PRIMARY KEY (seat_id),
 --);
 --
@@ -27,5 +27,12 @@
 --    (3,"true","true", 0);
 --    (4, "true","true", 1);
 
-insert into seat_table(id, available, seatType, aisle) values (1, true, 0, true);
-insert into users(id, name, email, city) values (1, "Amy Henderson", "ahenderson@gmail.com", "Oklahoma City");
+
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (1, "true", 0, "true");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (2, "false", 1, "true");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (3, "true", 0, "true");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (4, "false", 0, "false");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (5, "true", 0, "true");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (6, "true", 1, "false");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (7, "false", 1, "true");
+INSERT INTO SEATS(id, available, seatType, aisle) VALUES (8, "true", 0, "true");

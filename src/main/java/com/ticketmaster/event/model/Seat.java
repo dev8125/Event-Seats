@@ -1,14 +1,21 @@
 package com.ticketmaster.event.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.jboss.logging.Field;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.stereotype.Indexed;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 @Entity
-@Table(name = "seat_table")
+@Indexed
+@Table(name ="SEATS")
 public class Seat
 {
     @Column(name = "id")
@@ -16,31 +23,27 @@ public class Seat
     @GeneratedValue
     private Long id;
 
-
     @Column(name = "available")
-    private  boolean seatAvail;
+    private Boolean seatAvail;
     @Column(name = "aisle")
-    private boolean isAisle;
-    @Column(name = "seat_type")
+    private Boolean isAisle;
+    @Column(name = "seatType")
     private int seatType;
 
-
-
-    private Seat seat;
 
 
     public Seat(){
         super();
     } // JPA
 
-    public Seat(boolean seatAvail, boolean isAisle, int seatType)
+    public Seat(Boolean seatAvail, Boolean isAisle, int seatType)
     {
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
         this.seatType = seatType;
     }
 
-    public boolean isSeatAvailable() {
+    public Boolean isSeatAvailable() {
         return seatAvail;
     }
 
@@ -67,7 +70,7 @@ public class Seat
         this.seatAvail = seatAvail;
     }
 
-    public boolean isAisle(){
+    public Boolean isAisle(){
        return isAisle;
     }
 

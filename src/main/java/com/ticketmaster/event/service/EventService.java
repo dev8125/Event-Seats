@@ -25,9 +25,10 @@ public class EventService {
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){
 
+       seatList= seatDB;
+       return seatList;
 
-
-    return seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
+     //  return seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
 
 
     }

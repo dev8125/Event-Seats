@@ -18,15 +18,17 @@ import java.util.stream.StreamSupport;
 public class EventController {
 
     @Autowired
+    SeatRepository seatRepository;
+
+    @Autowired
     private EventService eventService;
 
     @GetMapping(value = "/event/service")
-    public ArrayList<Seat> serviceTest(@RequestParam(value = "avail", defaultValue = "true", required = false) Boolean avail,
+    public ArrayList<Seat> serviceTest(@RequestParam(value = "available", defaultValue = "true", required = false) Boolean available,
                                   @RequestParam(value = "seatType", defaultValue = "0", required = false) int seatType,
                                   @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle) {
-       // return seatRepository.findByAvailableAndSeatTypeAndAisle(avail, seatType, aisle);
 
-        return eventService.queryService(avail, seatType, aisle);
+        return eventService.queryService(available, seatType, aisle);
 
     }
 

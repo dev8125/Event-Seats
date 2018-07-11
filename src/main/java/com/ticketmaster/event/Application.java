@@ -11,15 +11,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 
 @SpringBootApplication
@@ -219,12 +216,15 @@ public class Application extends SpringBootServletInitializer {
         seatDB.add(new Seat(true, true, 0));
         seatDB.add(new Seat(false, false, 0));
         seatDB.add(new Seat(true, true, 1));
-        seatDB.add(new Seat(false, true, 0));
+        seatDB.add(new Seat(true, false, 0));
         seatDB.add(new Seat(true, true, 0));
-        seatDB.add(new Seat(true, false, 1));
-        seatDB.add(new Seat(true, true, 0));
-        seatDB.add(new Seat(false, true, 1));
+        seatDB.add(new Seat(false, false, 0));
         seatDB.add(new Seat(false, false, 1));
+        seatDB.add(new Seat(true, false, 0));
+        seatDB.add(new Seat(true, true, 0));
+        seatDB.add(new Seat(false, false, 0));
+        seatDB.add(new Seat(true, true, 1));
+
 
         return seatDB;
     }

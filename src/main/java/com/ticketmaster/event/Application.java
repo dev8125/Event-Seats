@@ -5,6 +5,7 @@ import com.ticketmaster.event.repositories.SeatRepository;
 import com.ticketmaster.event.service.EventService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -28,7 +29,7 @@ public class Application extends SpringBootServletInitializer {
     @Autowired
     static SeatRepository seatRepository;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
@@ -36,12 +37,18 @@ public class Application extends SpringBootServletInitializer {
     EventService eventService;
 
     @Bean
-    public SeatRepository seatRepository(){
+    public SeatRepository seatRepository() {
         return new SeatRepository() {
             @Override
             public ArrayList<Seat> findByAvailableAndSeatTypeAndAisle(Boolean available, Integer seatType, Boolean aisle) {
                 return eventService.queryService(available, seatType, aisle);
             }
+
+            @Override
+            public Seat findByAvailableAndSeatTypeAndAisle2(Boolean available, Integer seatType, Boolean aisle) {
+                return eventService.queryService2(available, seatType, aisle);
+            }
+
 
             @Override
             public List<Seat> findAll() {
@@ -166,9 +173,6 @@ public class Application extends SpringBootServletInitializer {
     }
 
 
-
-
-
 //    @Bean
 //    InitializingBean sendDatabase() {
 //        return () -> {
@@ -194,9 +198,6 @@ public class Application extends SpringBootServletInitializer {
 //            seatRepository.save(new Seat(false, true, 1));
 //        };
 //    }
-
-
-
 
 
 //
@@ -227,5 +228,16 @@ public class Application extends SpringBootServletInitializer {
 
 
         return seatDB;
+    }
+
+    @Bean
+    CommandLineRunner init(SeatRepository seatRepository) {
+        return args ->
+                Arrays.asList("jhoeller", "dsyer", "pwebb", "ogierke", "rwinch", "mfisher", "mpollack", "jlong")
+                        .forEach(username -> {
+                            Seat seat = seatRepository.save(new Seat(true, true, 0));
+                            seatRepository.save(new Seat(true, false, 0));
+                            seatRepository.save(new Seat(true, true, 1));
+                        });
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Table;
 import java.util.ArrayList;
 
 @Repository
@@ -17,6 +18,12 @@ public interface SeatRepository extends JpaRepository<Seat, Long>
      ArrayList<Seat> findByAvailableAndSeatTypeAndAisle(@Param("available")Boolean available,
                                                         @Param("seatType") Integer seatType,
                                                         @Param("aisle") Boolean aisle);
+
+
+             @Query("SELECT count(*) from SEATS where available =: available AND seatType =: seatType AND aisle=: aisle")
+             Seat findByAvailableAndSeatTypeAndAisle2(@Param("available")Boolean available,
+                                                                @Param("seatType") Integer seatType,
+                                                                @Param("aisle") Boolean aisle);
 
 
          }

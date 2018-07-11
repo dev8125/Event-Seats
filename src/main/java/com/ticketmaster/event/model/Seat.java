@@ -23,11 +23,15 @@ public class Seat
     @GeneratedValue
     private Long id;
 
-    @Column(name = "available")
+//    @Column(name = "available")
+//    private Boolean seatAvail;
+//    @Column(name = "aisle")
+//    private Boolean isAisle;
+//    @Column(name = "seatType")
+//    private int seatType;
+
     private Boolean seatAvail;
-    @Column(name = "aisle")
     private Boolean isAisle;
-    @Column(name = "seatType")
     private int seatType;
 
 
@@ -74,4 +78,7 @@ public class Seat
        return isAisle;
     }
 
+    public long getId(){
+        return id;
+    }
 }

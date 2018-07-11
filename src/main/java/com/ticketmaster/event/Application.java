@@ -3,6 +3,7 @@ package com.ticketmaster.event;
 import com.ticketmaster.event.model.Seat;
 import com.ticketmaster.event.repositories.SeatRepository;
 import com.ticketmaster.event.service.EventService;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -233,11 +234,11 @@ public class Application extends SpringBootServletInitializer {
     @Bean
     CommandLineRunner init(SeatRepository seatRepository) {
         return args ->
-                Arrays.asList("jhoeller", "dsyer", "pwebb", "ogierke", "rwinch", "mfisher", "mpollack", "jlong")
-                        .forEach(username -> {
-                            Seat seat = seatRepository.save(new Seat(true, true, 0));
+               {
+                            seatRepository.save(new Seat(true, true, 0));
                             seatRepository.save(new Seat(true, false, 0));
                             seatRepository.save(new Seat(true, true, 1));
-                        });
+
+               };
     }
 }

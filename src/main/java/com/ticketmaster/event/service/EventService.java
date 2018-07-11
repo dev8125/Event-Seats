@@ -5,9 +5,14 @@ import com.ticketmaster.event.repositories.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.*;
 
 @Service
+@Transactional
 public class EventService {
 
     private ArrayList<Seat> seatList;
@@ -22,6 +27,9 @@ public class EventService {
     @Autowired
     EventController eventController;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){
 
@@ -33,7 +41,7 @@ public class EventService {
     public Seat queryService2(Boolean available, int seatType, Boolean aisle){
 
         return seatRepository.findByAvailableAndSeatTypeAndAisle2(available, seatType, aisle);
-
-
     }
+
+
 }

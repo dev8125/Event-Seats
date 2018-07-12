@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 import java.util.*;
 
 @Service
-@Transactional
 public class EventService {
 
     private ArrayList<Seat> seatList;
@@ -28,7 +27,10 @@ public class EventService {
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){
 
-       return seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
+       seatList = seatDB;
+       return seatList;
+
+      // return seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
 
 
     }

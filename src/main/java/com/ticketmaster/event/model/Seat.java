@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 @Entity
-@Indexed
 @Table(name ="SEATS")
 public class Seat
 {
@@ -23,15 +22,11 @@ public class Seat
     @GeneratedValue
     private Long id;
 
-//    @Column(name = "available")
-//    private Boolean seatAvail;
-//    @Column(name = "aisle")
-//    private Boolean isAisle;
-//    @Column(name = "seatType")
-//    private int seatType;
-
+    @Column(name = "available")
     private Boolean seatAvail;
+    @Column(name = "aisle")
     private Boolean isAisle;
+    @Column(name = "seatType")
     private int seatType;
 
 
@@ -44,41 +39,44 @@ public class Seat
     {
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
+
         this.seatType = seatType;
     }
 
-    public Boolean isSeatAvailable() {
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getSeatAvail() {
         return seatAvail;
     }
 
-    /*
-    Sets seat type adult/child
-     */
+    public void setSeatAvail(Boolean seatAvail) {
+        this.seatAvail = seatAvail;
+    }
+
+    public Boolean getAisle() {
+        return isAisle;
+    }
+
+    public void setAisle(Boolean aisle) {
+        isAisle = aisle;
+    }
+
     public int getSeatType() {
         return seatType;
     }
 
-    /*
-     * Sets seat type
-     * @param seatType 0 for child 1 for adult
-     */
     public void setSeatType(int seatType) {
         this.seatType = seatType;
     }
 
-    public void setAisle(Boolean isAisle) {
-        this.isAisle = isAisle;
-    }
 
-    public void setAvailability(Boolean seatAvail) {
-        this.seatAvail = seatAvail;
-    }
 
-    public Boolean isAisle(){
-       return isAisle;
-    }
 
-    public long getId(){
-        return id;
-    }
 }

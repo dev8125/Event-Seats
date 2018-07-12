@@ -1,6 +1,3 @@
-
-
-
 INSERT INTO SEATS(id, available, seatType, aisle) VALUES (1, "true", 0, "true");
 INSERT INTO SEATS(id, available, seatType, aisle) VALUES (2, "false", 1, "true");
 INSERT INTO SEATS(id, available, seatType, aisle) VALUES (3, "true", 0, "true");

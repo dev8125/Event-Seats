@@ -13,17 +13,9 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@SpringBootApplication
 @RequestMapping(value = "/getNumSeats", produces = "application/json") //make the rest resource naming better
 public class EventController {
 
-    @Autowired
-    EventController(SeatRepository seatRepository){
-        this.seatRepository = seatRepository;
-    }
-
-    @Autowired
-    SeatRepository seatRepository;
 
     @Autowired
     private EventService eventService;

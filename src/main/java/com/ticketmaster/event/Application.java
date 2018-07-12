@@ -46,12 +46,6 @@ public class Application extends SpringBootServletInitializer {
             }
 
             @Override
-            public Seat findByAvailableAndSeatTypeAndAisle2(Boolean available, Integer seatType, Boolean aisle) {
-                return eventService.queryService2(available, seatType, aisle);
-            }
-
-
-            @Override
             public List<Seat> findAll() {
                 return null;
             }

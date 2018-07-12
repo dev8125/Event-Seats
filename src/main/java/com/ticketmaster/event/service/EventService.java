@@ -38,10 +38,5 @@ public class EventService {
 
     }
 
-    public Seat queryService2(Boolean available, int seatType, Boolean aisle){
-
-        return seatRepository.findByAvailableAndSeatTypeAndAisle2(available, seatType, aisle);
-    }
-
 
 }

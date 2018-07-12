@@ -37,14 +37,6 @@ public class EventController {
 
     }
 
-    @GetMapping(value = "/event/service2")
-    public Seat serviceTest2(@RequestParam(value = "available", defaultValue = "true", required = false) Boolean available,
-                                       @RequestParam(value = "seatType", defaultValue = "0", required = false) int seatType,
-                                       @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle) {
-
-        return eventService.queryService2(available, seatType, aisle);
-
-    }
 
 
 

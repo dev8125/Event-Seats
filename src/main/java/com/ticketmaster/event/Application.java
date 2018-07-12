@@ -24,9 +24,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.*;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ticketmaster.event"})
-@EntityScan("com.ticketmaster.domain")
-@EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
+//@ComponentScan(basePackages = {"com.ticketmaster.event"})
+//@EntityScan("com.ticketmaster.domain")
+//@EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
 public class Application extends SpringBootServletInitializer {
 
     @Autowired
@@ -44,7 +44,7 @@ public class Application extends SpringBootServletInitializer {
 
     }
 
-    @Bean
+    //@Bean
     public SeatRepository seatRepository(){
         return new SeatRepository() {
             @Override

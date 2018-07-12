@@ -10,7 +10,7 @@ import java.util.*;
 public class EventService {
 
     @Autowired
-    SeatRepository seatRepository;
+    private SeatRepository seatRepository;
 
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){

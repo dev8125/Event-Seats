@@ -17,7 +17,7 @@ import java.util.stream.StreamSupport;
 @Table(name ="SEATS")
 public class Seat
 {
-    @Column(name = "id")
+
     @Id
     @GeneratedValue
     private Long id;
@@ -26,7 +26,7 @@ public class Seat
     private Boolean seatAvail;
     @Column(name = "aisle")
     private Boolean isAisle;
-    @Column(name = "seatType")
+    @Column(name = "seattype")
     private int seatType;
 
 

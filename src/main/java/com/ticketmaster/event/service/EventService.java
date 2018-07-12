@@ -24,11 +24,6 @@ public class EventService {
     @Autowired
     SeatRepository seatRepository;
 
-    @Autowired
-    EventController eventController;
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
 
    public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle){

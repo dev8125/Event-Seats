@@ -44,7 +44,7 @@ public class Application extends SpringBootServletInitializer {
 
     }
 
-    //@Bean
+    @Bean
     public SeatRepository seatRepository(){
         return new SeatRepository() {
             @Override

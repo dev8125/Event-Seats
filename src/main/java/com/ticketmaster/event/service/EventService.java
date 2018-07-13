@@ -6,26 +6,17 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class EventService{
+public class EventService {
 
-    private List<Seat> seatList;
     @Autowired
-    private  final SeatRepository seatRepository;
+    private SeatRepository seatRepository;
 
 
-    public EventService(SeatRepository seatRepository){
-        this.seatRepository = seatRepository;
+   public ArrayList<Seat> queryService(Boolean available, int seatType, Boolean aisle, Optional<Long> id){
+
+       return seatRepository.findByAvailableAndSeatTypeAndAisleAndId(available, seatType, aisle, id);
+
     }
 
-
-   public List<Seat> queryService(Boolean available, int seatType, Boolean aisle){
-        seatList=  seatRepository.findByAvailableAndSeatTypeAndAisle(available, seatType, aisle);
-        return seatList;
-    }
-
-    public List<Seat> getSeatList(){
-        seatList = seatRepository.findAll();
-        return seatList;
-    }
 
 }

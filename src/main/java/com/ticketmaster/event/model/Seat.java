@@ -1,88 +1,83 @@
 package com.ticketmaster.event.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.jboss.logging.Field;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.stereotype.Indexed;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 @Entity
-@Table(name = "SEAT_TABLE")
+@Table(name ="Seats")
 public class Seat
 {
-    @Column(name = "ID")
+    @Column(name = "id")
     @Id
     @GeneratedValue
     private Long id;
 
-//    @JsonIgnore
-//    @OneToMany
-//    @Column(name = "Event_ID")
-//    private EventModel eventModel;
-
-    @Column(name = "AVAILABLE")
-    private  boolean seatAvail;
-    @Column(name = "AISLE")
-    private boolean isAisle;
-    @Column(name = "SEAT_TYPE")
+    @Column(name = "available")
+    private Boolean seatAvail;
+    @Column(name = "aisle")
+    private Boolean isAisle;
+    @Column(name = "seattype")
     private int seatType;
 
-    @ElementCollection
-    private List<Seat> seatList;
-
-    @ManyToMany
-    private Seat seat;
 
 
     public Seat(){
         super();
     } // JPA
 
-    public Seat(boolean seatAvail, final boolean isAisle, final int seatType)
+    public Seat( Boolean seatAvail, Boolean isAisle, int seatType)
     {
+
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
+
         this.seatType = seatType;
     }
 
-    public List<Seat> getSeatList() {
-        return seatList;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setSeatList(List<Seat> seatList) {
-        this.seatList = seatList;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public boolean isSeatAvailable() {
+    public Boolean getSeatAvail() {
         return seatAvail;
     }
 
-    /*
-    Sets seat type adult/child
-     */
+    public void setSeatAvail(Boolean seatAvail) {
+        this.seatAvail = seatAvail;
+    }
+
+    public Boolean getAisle() {
+        return isAisle;
+    }
+
+    public void setAisle(Boolean aisle) {
+        isAisle = aisle;
+    }
+
     public int getSeatType() {
         return seatType;
     }
 
-    /*
-     * Sets seat type
-     * @param seatType 0 for child 1 for adult
-     */
     public void setSeatType(int seatType) {
         this.seatType = seatType;
     }
 
-    public void setAisle(Boolean isAisle) {
-        this.isAisle = isAisle;
-    }
 
-    public void setAvailability(Boolean seatAvail) {
-        this.seatAvail = seatAvail;
-    }
 
-    public boolean isAisle(){
-       return isAisle;
-    }
 
 }

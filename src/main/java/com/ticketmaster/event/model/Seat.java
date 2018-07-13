@@ -17,7 +17,7 @@ import java.util.stream.StreamSupport;
 @Table(name ="SEATS")
 public class Seat
 {
-
+    @Column(name = "id")
     @Id
     @GeneratedValue
     private Long id;
@@ -35,8 +35,9 @@ public class Seat
         super();
     } // JPA
 
-    public Seat(Boolean seatAvail, Boolean isAisle, int seatType)
+    public Seat(Long id, Boolean seatAvail, Boolean isAisle, int seatType)
     {
+        this.id =id;
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
 

@@ -23,9 +23,10 @@ public class EventController {
     @GetMapping(value = "/event/service")
     public ArrayList<Seat> serviceTest(@RequestParam(value = "available", defaultValue = "true", required = false) Boolean available,
                                   @RequestParam(value = "seatType", defaultValue = "0", required = false) int seatType,
-                                  @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle) {
+                                  @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle,
+                                       @RequestParam(value = "id", required = false) Long id){
 
-        return eventService.queryService(available, seatType, aisle);
+        return eventService.queryService(available, seatType, aisle,id);
 
     }
 

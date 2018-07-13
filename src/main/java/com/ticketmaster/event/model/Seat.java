@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 @Entity
-@Table(name ="seats")
+@Table(name ="Seats")
 public class Seat
 {
     @Column(name = "id")

@@ -35,9 +35,9 @@ public class Seat
         super();
     } // JPA
 
-    public Seat(Long id, Boolean seatAvail, Boolean isAisle, int seatType)
+    public Seat( Boolean seatAvail, Boolean isAisle, int seatType)
     {
-        this.id =id;
+
         this.seatAvail = seatAvail;
         this.isAisle = isAisle;
 

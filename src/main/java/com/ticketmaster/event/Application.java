@@ -32,14 +32,9 @@ public class Application extends SpringBootServletInitializer {
     @Autowired
     SeatRepository seatRepository;
 
-    @Autowired
-    EventService eventService;
-
-
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-       // ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/beans.xml");
 
 
     }
@@ -48,26 +43,26 @@ public class Application extends SpringBootServletInitializer {
     @Bean
     InitializingBean sendDatabase() {
         return () -> {
-            seatRepository.save(new Seat(0L,false, false, 1));
-//            seatRepository.save(new Seat(true, false, 1));
-//            seatRepository.save(new Seat(true, true, 0));
-//            seatRepository.save(new Seat(true, false, 1));
-//            seatRepository.save(new Seat(false, true, 1));
-//            seatRepository.save(new Seat(false, false, 0));
-//            seatRepository.save(new Seat(true, true, 0));
-//            seatRepository.save(new Seat(false, false, 1));
-//            seatRepository.save(new Seat(true, false, 0));
-//            seatRepository.save(new Seat(true, true, 1));
-//            seatRepository.save(new Seat(false, false, 1));
-//            seatRepository.save(new Seat(true, false, 1));
-//            seatRepository.save(new Seat(true, false, 0));
-//            seatRepository.save(new Seat(true, false, 1));
-//            seatRepository.save(new Seat(false, true, 1));
-//            seatRepository.save(new Seat(false, false, 0));
-//            seatRepository.save(new Seat(true, true, 0));
-//            seatRepository.save(new Seat(false, false, 1));
-//            seatRepository.save(new Seat(true, true, 0));
-//            seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(true, true, 1));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(false, true, 1));
         };
     }
 
@@ -75,9 +70,9 @@ public class Application extends SpringBootServletInitializer {
     CommandLineRunner init(SeatRepository seatRepository) {
         return args ->
                {
-                            seatRepository.save(new Seat(0L,true, true, 0));
-                            seatRepository.save(new Seat(1L,true, false, 0));
-                            seatRepository.save(new Seat(2L,true, true, 1));
+                            seatRepository.save(new Seat(true, true, 0));
+                            seatRepository.save(new Seat(true, false, 0));
+                            seatRepository.save(new Seat(true, true, 1));
 
                };
     }

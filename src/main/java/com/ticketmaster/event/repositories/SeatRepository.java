@@ -11,8 +11,6 @@ import java.util.Optional;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long>
          {
-             // "SELECT count(s) FROM Seat s WHERE available =:available AND seatType =:seatType AND aisle=:aisle AND id =:id"
-
      @Query(value = "SELECT count(s) FROM Seat s WHERE available =:available AND seatType =:seatType AND aisle=:aisle OR id =:id")
      ArrayList<Seat> findByAvailableAndSeatTypeAndAisleAndId(@Param("available")Boolean available,
                                                         @Param("seatType") Integer seatType,

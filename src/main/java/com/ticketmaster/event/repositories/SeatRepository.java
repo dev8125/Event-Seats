@@ -13,8 +13,8 @@ public interface SeatRepository extends JpaRepository<Seat, Long>
          {
 
 
-     @Query(value = "SELECT count(*) from SEATS where available =:available AND seatType =:seatType AND aisle=:aisle" )
-     ArrayList<Seat> findByAvailableAndSeatTypeAndAisle(@Param("available")Boolean available,
+     @Query(value = "SELECT count(*) from SEATS where available =:available AND seatType =:seatType AND aisle=:aisle AND id =:id" )
+     ArrayList<Seat> findByAvailableAndSeatTypeAndAisleAndId(@Param("available")Boolean available,
                                                         @Param("seatType") Integer seatType,
                                                         @Param("aisle") Boolean aisle,
                                                         @Param("id") Optional<Long> id);

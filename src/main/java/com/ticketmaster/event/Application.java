@@ -24,9 +24,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.*;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.ticketmaster.event"})
-//@EntityScan("com.ticketmaster.domain")
-//@EnableJpaRepositories("com.ticketmaster.repositories.SeatRepositories")
 public class Application extends SpringBootServletInitializer {
 
     @Autowired
@@ -39,11 +36,11 @@ public class Application extends SpringBootServletInitializer {
 
     }
 
-
     @Bean
-    InitializingBean sendDatabase() {
-        return () -> {
-            seatRepository.save(new Seat(false, false, 1));
+    CommandLineRunner init(SeatRepository seatRepository) {
+        return args ->
+        {
+            seatRepository.save(new Seat(false, false, 0));
             seatRepository.save(new Seat(true, false, 1));
             seatRepository.save(new Seat(true, true, 0));
             seatRepository.save(new Seat(true, false, 1));
@@ -53,27 +50,46 @@ public class Application extends SpringBootServletInitializer {
             seatRepository.save(new Seat(false, false, 1));
             seatRepository.save(new Seat(true, false, 0));
             seatRepository.save(new Seat(true, true, 1));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(false, true, 0));
+            seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(false, true, 0));
+            seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(true, false, 1));
             seatRepository.save(new Seat(false, false, 1));
             seatRepository.save(new Seat(true, false, 1));
             seatRepository.save(new Seat(true, false, 0));
-            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(false, false, 0));
             seatRepository.save(new Seat(false, true, 1));
             seatRepository.save(new Seat(false, false, 0));
             seatRepository.save(new Seat(true, true, 0));
             seatRepository.save(new Seat(false, false, 1));
-            seatRepository.save(new Seat(true, true, 0));
+            seatRepository.save(new Seat(false, true, 0));
             seatRepository.save(new Seat(false, true, 1));
+            seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(true, false, 0));
+            seatRepository.save(new Seat(true, false, 1));
+            seatRepository.save(new Seat(false, true, 0));
+
         };
     }
 
-    @Bean
-    CommandLineRunner init(SeatRepository seatRepository) {
-        return args ->
-               {
-                            seatRepository.save(new Seat(true, true, 0));
-                            seatRepository.save(new Seat(true, false, 0));
-                            seatRepository.save(new Seat(true, true, 1));
 
-               };
-    }
+
+
 }

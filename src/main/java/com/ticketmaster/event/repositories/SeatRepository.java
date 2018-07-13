@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface SeatRepository extends JpaRepository<Seat, Long>
          {
      @Query(value = "SELECT s FROM Seat s WHERE available =:available AND seatType =:seatType AND aisle=:aisle OR id =:id")
-     ArrayList<Seat> findByAvailableAndSeatTypeAndAisleAndId(@Param("avail")Boolean available,
+     ArrayList<Seat> findByAvailableAndSeatTypeAndAisleAndId(@Param("available")Boolean available,
                                                         @Param("seatType") Integer seatType,
                                                         @Param("aisle") Boolean aisle,
                                                         @Param("id") Optional<Long> id);

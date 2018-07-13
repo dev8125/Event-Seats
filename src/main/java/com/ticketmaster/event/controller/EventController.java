@@ -26,7 +26,7 @@ public class EventController {
                                   @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle,
                                        @RequestParam(value = "id", required = false) Long id){
 
-        return eventService.queryService(available, seatType, aisle,id);
+        return eventService.queryService(available, seatType, aisle, java.util.Optional.ofNullable(id));
 
     }
 

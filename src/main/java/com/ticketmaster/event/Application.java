@@ -66,6 +66,7 @@ public class Application extends SpringBootServletInitializer {
             seatRepository.save(new Seat(true, false, 1));
             seatRepository.save(new Seat(false, true, 0));
             seatRepository.save(new Seat(false, false, 0));
+            seatRepository.save(new Seat(true, true, 1));
             seatRepository.save(new Seat(true, true, 0));
             seatRepository.save(new Seat(false, false, 1));
             seatRepository.save(new Seat(true, false, 0));
@@ -81,6 +82,7 @@ public class Application extends SpringBootServletInitializer {
             seatRepository.save(new Seat(false, true, 0));
             seatRepository.save(new Seat(false, true, 1));
             seatRepository.save(new Seat(false, false, 1));
+            seatRepository.save(new Seat(true, true, 1));
             seatRepository.save(new Seat(true, false, 1));
             seatRepository.save(new Seat(true, false, 0));
             seatRepository.save(new Seat(true, false, 1));

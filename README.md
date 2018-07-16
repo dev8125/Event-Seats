@@ -18,3 +18,8 @@ aisle = true | false // Boolean
 type = adult | child // Integer 0=child, 1=adult
 
 END POINT FOR ACCESS : localhost:8080/getNumSeats/event/service
+
+
+EXAMPLE: http://localhost:8080/getNumSeats/event/service/?avail=false&aisle=true&seatType=1
+
+RESPONSE: [{"id":5,"seatAvail":false,"seatType":1,"aisle":true},{"id":15,"seatAvail":false,"seatType":1,"aisle":true},{"id":20,"seatAvail":false,"seatType":1,"aisle":true},{"id":36,"seatAvail":false,"seatType":1,"aisle":true},{"id":41,"seatAvail":false,"seatType":1,"aisle":true}]

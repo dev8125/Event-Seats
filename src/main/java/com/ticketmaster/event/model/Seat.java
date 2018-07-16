@@ -1,44 +1,40 @@
 package com.ticketmaster.event.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.jboss.logging.Field;
-import org.jetbrains.annotations.NotNull;
-import org.springframework.data.repository.NoRepositoryBean;
-import org.springframework.stereotype.Indexed;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
-import java.util.List;
-import java.util.stream.StreamSupport;
 
+@JsonPropertyOrder({"id", "isAvailable", "seatType", "isAisle"})
 @Entity
-@Table(name ="Seats")
-public class Seat
-{
+@Table(name = "Seats")
+public class Seat {
+
     @Column(name = "id")
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(name = "available")
-    private Boolean seatAvail;
+    private Boolean isAvailable;
+
     @Column(name = "aisle")
     private Boolean isAisle;
+
     @Column(name = "seattype")
     private int seatType;
 
 
-
-    public Seat(){
+    public Seat() {
         super();
     } // JPA
 
-    public Seat( Boolean seatAvail, Boolean isAisle, int seatType)
-    {
+    public Seat(Boolean isAvailable, Boolean isAisle, int seatType) {
 
-        this.seatAvail = seatAvail;
+        this.isAvailable = isAvailable;
         this.isAisle = isAisle;
 
         this.seatType = seatType;
@@ -53,19 +49,20 @@ public class Seat
         this.id = id;
     }
 
-    public Boolean getSeatAvail() {
-        return seatAvail;
+    public Boolean getIsAvailable() {
+        return isAvailable;
     }
 
-    public void setSeatAvail(Boolean seatAvail) {
-        this.seatAvail = seatAvail;
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
-    public Boolean getAisle() {
+
+    public Boolean getIsAisle() {
         return isAisle;
     }
 
-    public void setAisle(Boolean aisle) {
+    public void setIsAisle(Boolean aisle) {
         isAisle = aisle;
     }
 
@@ -76,8 +73,4 @@ public class Seat
     public void setSeatType(int seatType) {
         this.seatType = seatType;
     }
-
-
-
-
 }

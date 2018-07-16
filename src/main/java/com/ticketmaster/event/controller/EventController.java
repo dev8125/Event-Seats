@@ -1,19 +1,15 @@
 package com.ticketmaster.event.controller;
 
-import com.ticketmaster.event.repositories.SeatRepository;
 import com.ticketmaster.event.model.Seat;
 import com.ticketmaster.event.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.Optional;
+
 
 @RestController
-@RequestMapping(value = "/getNumSeats", produces = "application/json") //make the rest resource naming better
+@RequestMapping(value = "/getNumSeats", produces = "application/json")
 public class EventController {
 
     @Autowired
@@ -28,4 +24,5 @@ public class EventController {
         return eventService.queryService(available, seatType, aisle, java.util.Optional.ofNullable(id));
 
     }
+
 }

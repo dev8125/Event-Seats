@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.Optional;
 
 @JsonPropertyOrder({"id", "isAvailable", "seatType", "isAisle"})
 @Entity
@@ -16,7 +17,7 @@ public class Seat {
     @Column(name = "id")
     @Id
     @GeneratedValue
-    private Long id;
+    private Optional<Long> id;
 
     @Column(name = "available")
     private Boolean isAvailable;
@@ -27,42 +28,43 @@ public class Seat {
     @Column(name = "seattype")
     private int seatType;
 
+    @Column(name = "eventId")
+    private String eventId;
 
     public Seat() {
         super();
     } // JPA
 
-    public Seat(Boolean isAvailable, Boolean isAisle, int seatType) {
+    public Seat(String event, Boolean isAvailable, Boolean isAisle, Integer seatType, Optional<Long> id) {
 
+        this.id = id;
         this.isAvailable = isAvailable;
         this.isAisle = isAisle;
-
         this.seatType = seatType;
+        this.eventId = eventId;
     }
 
-
-    public Long getId() {
+    public Optional<Long> getId() {
         return id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.id = Optional.ofNullable(id);
     }
 
-    public Boolean getIsAvailable() {
+    public Boolean getAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(Boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
-
-    public Boolean getIsAisle() {
+    public Boolean getAisle() {
         return isAisle;
     }
 
-    public void setIsAisle(Boolean aisle) {
+    public void setAisle(Boolean aisle) {
         isAisle = aisle;
     }
 
@@ -73,4 +75,14 @@ public class Seat {
     public void setSeatType(int seatType) {
         this.seatType = seatType;
     }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+
 }

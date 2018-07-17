@@ -86,13 +86,11 @@ public class Application extends SpringBootServletInitializer {
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
-            seatRepository.save(new Seat("002", true, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
-            seatRepository.save(new Seat("002", true, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
@@ -111,13 +109,11 @@ public class Application extends SpringBootServletInitializer {
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
-            seatRepository.save(new Seat("002", true, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
-            seatRepository.save(new Seat("002", true, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", true, false, Seat.SeatType.CHILD));
             seatRepository.save(new Seat("002", false, true, Seat.SeatType.ADULT));
             seatRepository.save(new Seat("002", false, false, Seat.SeatType.ADULT));

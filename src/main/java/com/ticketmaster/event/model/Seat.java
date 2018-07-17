@@ -9,10 +9,10 @@ import javax.persistence.*;
 @Table(name = "Seats")
 public class Seat {
 
-    @Column(name = "id")
+    @Column(name = "seatId")
     @Id
     @GeneratedValue
-    private Long id;
+    private Long seatId;
 
     @Column(name = "available")
     private Boolean isAvailable;
@@ -42,12 +42,12 @@ public class Seat {
     }
 
 
-    public Long getId() {
-        return id;
+    public Long getSeatId() {
+        return seatId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSeatId(Long seatId) {
+        this.seatId = seatId;
     }
 
     public Boolean getAvailable() {

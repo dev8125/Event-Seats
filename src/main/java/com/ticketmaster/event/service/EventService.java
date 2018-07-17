@@ -14,7 +14,7 @@ public class EventService {
     private SeatRepository seatRepository;
 
 
-    public List<Seat> getFilteredSeats(String eventId, Boolean available, Seat.SeatType seatType, Boolean aisle, Optional<Long> id) {
+    public List<Seat> getFilteredSeats(String eventId, Boolean available, Optional<Seat.SeatType> seatType, Optional<Boolean> aisle, Optional<Long> id) {
 
         return seatRepository.findByFilterOptions(eventId, available, seatType, aisle, id);
 

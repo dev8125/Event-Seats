@@ -21,7 +21,7 @@ public class EventController {
     @GetMapping(value = "/{eventId}/seats")
     public SeatInfoJson serviceTest(@PathVariable("eventId") String eventId,
                                     @RequestParam(value = "avail", defaultValue = "true", required = false) Boolean available,
-                                    @RequestParam(value = "seatType", defaultValue = "ADULT", required = false) Seat.SeatType seatType,
+                                    @RequestParam(value = "seatType", defaultValue = "adult", required = false) Seat.SeatType seatType,
                                     @RequestParam(value = "aisle", defaultValue = "true", required = false) Boolean aisle,
                                     @RequestParam(value = "id", required = false) Long id,
                                     @RequestParam(value = "showAll", defaultValue = "false", required = false) Boolean showAll)

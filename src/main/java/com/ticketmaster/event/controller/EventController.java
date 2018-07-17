@@ -20,8 +20,8 @@ public class EventController {
     @GetMapping(value = "/{eventId}/seats")
     public SeatListWrapper eventSearch(@PathVariable("eventId") String eventId,
                                        @RequestParam(value = "avail", defaultValue = "true", required = false) Boolean available,
-                                       @RequestParam(value = "seatType", required = false) Optional<Seat.SeatType> seatType,
-                                       @RequestParam(value = "aisle", required = false) Optional<Boolean> aisle,
+                                       @RequestParam(value = "seatType", required = false) Seat.SeatType seatType,
+                                       @RequestParam(value = "aisle", required = false) Boolean aisle,
                                        @RequestParam(value = "seatId", required = false) Long seatId,
                                        @RequestParam(value = "showAll", defaultValue = "false", required = false) Boolean showAll)
 
@@ -29,11 +29,28 @@ public class EventController {
         List<Seat> seats;
 
 
-        if (showAll) {
+        if (showAll)
+        {
             seats = eventService.getAllSeats(eventId);
-        } else {
-            seats = eventService.getFilteredSeats(eventId, available, seatType, aisle, java.util.Optional.ofNullable(seatId));
         }
+        else if(seatType==null && aisle ==null)
+        {
+            seats = eventService.defaultSearch(eventId, available);
+        }
+        else if(aisle ==null && seatType !=null)
+        {
+            seats = eventService.seatTypeSeatch(eventId, seatType);
+        }
+        else if(seatType==null && aisle !=null)
+        {
+            seats = eventService.aisleSearch(eventId, aisle);
+        }
+        else
+            {
+                seats = eventService.getFilteredSeats(eventId, available, seatType, aisle, java.util.Optional.ofNullable(seatId));
+            }
+
+
 
         return new SeatListWrapper(eventId,seats.size(), seats);
     }

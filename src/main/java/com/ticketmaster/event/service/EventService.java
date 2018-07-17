@@ -14,10 +14,22 @@ public class EventService {
     private SeatRepository seatRepository;
 
 
-    public List<Seat> getFilteredSeats(String eventId, Boolean available, Optional<Seat.SeatType> seatType, Optional<Boolean> aisle, Optional<Long> id) {
+    public List<Seat> getFilteredSeats(String eventId, Boolean available, Seat.SeatType seatType, Boolean aisle, Optional<Long> id) {
 
         return seatRepository.findByFilterOptions(eventId, available, seatType, aisle, id);
 
+    }
+
+    public List<Seat> defaultSearch(String eventId, Boolean available){
+        return seatRepository.defaultFilter(eventId, available);
+    }
+
+    public List<Seat> seatTypeSeatch(String eventId, Seat.SeatType seatType){
+        return seatRepository.seatTypeFilter(eventId, seatType);
+    }
+
+    public List<Seat> aisleSearch(String eventId, Boolean aisle){
+        return seatRepository.aisleFilter(eventId, aisle);
     }
 
     public List<Seat> getAllSeats(String eventId) {

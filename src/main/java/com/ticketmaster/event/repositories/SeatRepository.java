@@ -12,12 +12,24 @@ import java.util.Optional;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
-    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND available =:available OR seatType =:seatType OR aisle=:aisle OR id =:id")
+    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND available =:available AND seatType =:seatType AND aisle =:aisle OR id =:id")
     List<Seat> findByFilterOptions(@Param("eventId") String eventId,
                                    @Param("available") Boolean available,
-                                   @Param("seatType") Optional<Seat.SeatType> seatType,
-                                   @Param("aisle") Optional<Boolean> aisle,
+                                   @Param("seatType") Seat.SeatType seatType,
+                                   @Param("aisle") Boolean aisle,
                                    @Param("id") Optional<Long> id);
+
+    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND available =:available")
+    List<Seat> defaultFilter(@Param("eventId") String eventId,
+                                   @Param("available") Boolean available);
+
+    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND seatType =:seatType")
+    List<Seat> seatTypeFilter(@Param("eventId") String eventId,
+                              @Param("seatType") Seat.SeatType seatType);
+
+    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND aisle =:aisle")
+    List<Seat> aisleFilter(@Param("eventId") String eventId,
+                              @Param("aisle") Boolean aisle);
 
 
     @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId")

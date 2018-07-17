@@ -37,8 +37,8 @@ public class Seat {
         this.eventId = eventId;
     }
     public enum SeatType {
-        adult,
-        child
+        ADULT,
+        CHILD
     }
 
 

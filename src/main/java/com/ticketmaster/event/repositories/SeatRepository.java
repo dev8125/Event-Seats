@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
-    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND available =:available AND seatType =:seatType AND aisle=:aisle OR id =:id")
+    @Query(value = "SELECT s FROM Seat s WHERE eventId =:eventId AND (available =:available AND seatType =:seatType AND aisle=:aisle) OR id =:id")
     List<Seat> findByFilterOptions(@Param("eventId") String eventId,
                                    @Param("available") Boolean available,
                                    @Param("seatType") Seat.SeatType seatType,

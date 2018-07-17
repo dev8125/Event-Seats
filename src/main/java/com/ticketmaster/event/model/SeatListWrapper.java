@@ -2,14 +2,14 @@ package com.ticketmaster.event.model;
 
 import java.util.List;
 
-public class SeatInfoJson {
+public class SeatListWrapper {
     private String eventId;
     private Integer count;
     private List<Seat> seats;
 
-    public SeatInfoJson(String eventId, Integer count, List<Seat> seats) {
+    public SeatListWrapper(String eventId, Integer count, List<Seat> seats) {
         this.eventId = eventId;
-        this.count = count;
+        this.count = count; // count=seats.size();
         this.seats = seats;
     }
 

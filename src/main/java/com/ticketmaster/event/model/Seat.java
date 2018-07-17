@@ -1,15 +1,10 @@
 package com.ticketmaster.event.model;
 
-
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
-import java.util.Optional;
 
-@JsonPropertyOrder({"id", "isAvailable", "seatType", "isAisle"})
 @Entity
 @Table(name = "Seats")
 public class Seat {
@@ -17,7 +12,7 @@ public class Seat {
     @Column(name = "id")
     @Id
     @GeneratedValue
-    private Optional<Long> id;
+    private Long id;
 
     @Column(name = "available")
     private Boolean isAvailable;
@@ -26,7 +21,7 @@ public class Seat {
     private Boolean isAisle;
 
     @Column(name = "seattype")
-    private int seatType;
+    private SeatType seatType;
 
     @Column(name = "eventId")
     private String eventId;
@@ -35,21 +30,24 @@ public class Seat {
         super();
     } // JPA
 
-    public Seat(String event, Boolean isAvailable, Boolean isAisle, Integer seatType, Optional<Long> id) {
-
-        this.id = id;
+    public Seat(String eventId, Boolean isAvailable, Boolean isAisle, SeatType seatType) {
+        this.seatType = seatType;
         this.isAvailable = isAvailable;
         this.isAisle = isAisle;
-        this.seatType = seatType;
         this.eventId = eventId;
     }
+    public enum SeatType {
+        adult,
+        child
+    }
 
-    public Optional<Long> getId() {
+
+    public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
-        this.id = Optional.ofNullable(id);
+        this.id = id;
     }
 
     public Boolean getAvailable() {
@@ -68,11 +66,11 @@ public class Seat {
         isAisle = aisle;
     }
 
-    public int getSeatType() {
+    public SeatType getSeatType() {
         return seatType;
     }
 
-    public void setSeatType(int seatType) {
+    public void setSeatType(SeatType seatType) {
         this.seatType = seatType;
     }
 
@@ -83,6 +81,5 @@ public class Seat {
     public void setEventId(String eventId) {
         this.eventId = eventId;
     }
-
 
 }

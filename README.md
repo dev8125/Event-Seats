@@ -15,11 +15,11 @@ available = true | false // Boolean
 
 aisle = true | false // Boolean
 
-type = adult | child // Integer 0=child, 1=adult
+type = adult | child // Integer, Enum
 
-END POINT FOR ACCESS : localhost:8080/getNumSeats/event/service
+END POINT FOR ACCESS : localhost:8080/event/{eventId}/seats
 
 
-EXAMPLE: http://localhost:8080/getNumSeats/event/service/?avail=false&aisle=true&seatType=1
+EXAMPLE: http://http://localhost:8080/event/001/seats?avail=true&aisle=false&seatType=ADULT
 
-RESPONSE: [{"id":5,"seatAvail":false,"seatType":1,"aisle":true},{"id":15,"seatAvail":false,"seatType":1,"aisle":true},{"id":20,"seatAvail":false,"seatType":1,"aisle":true},{"id":36,"seatAvail":false,"seatType":1,"aisle":true},{"id":41,"seatAvail":false,"seatType":1,"aisle":true}]
+RESPONSE: {"eventId":"001","count":4,"seats":[{"seatId":9,"seatType":"ADULT","eventId":"001","available":true,"aisle":false},{"seatId":15,"seatType":"ADULT","eventId":"001","available":true,"aisle":false},{"seatId":34,"seatType":"ADULT","eventId":"001","available":true,"aisle":false},{"seatId":40,"seatType":"ADULT","eventId":"001","available":true,"aisle":false}]}

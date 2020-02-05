@@ -1,3 +1,3 @@
-# Event-Seats
+# RESTful Web Service returning Seat Totals when passed different parameters. 
 
-RestAPI project returning Seat Totals by different filters. 
+Built on SpringBoot framework. 
